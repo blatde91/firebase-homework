@@ -31,7 +31,7 @@ $("#submitButt").on("click", function(event){
 		howoften: frequency,
 	}
 
-	console.log("momenttttt" + trainTime);
+	// console.log("momenttttt" + trainTime);
 
 	// add newTrain to Firebase
 	database.ref().push(newTrain);
@@ -53,10 +53,10 @@ database.ref().on("child_added", function(snapshot, prevChildKey){
 	var fireFrequency = snapshot.val().howoften;
 
 	// console logs
-	console.log(fireTrainName);
-	console.log(fireDestination);
-	console.log(fireTrainTime);
-	console.log(fireFrequency);
+	// console.log(fireTrainName);
+	// console.log(fireDestination);
+	// console.log(fireTrainTime);
+	// console.log(fireFrequency);
 
 	//moment.js vars to calculate time difference
 	var convertTime = moment.unix(fireTrainTime);
@@ -67,10 +67,10 @@ database.ref().on("child_added", function(snapshot, prevChildKey){
 	// train time to push into table
 	var nextTrain = moment().add(totalMins, "minutes").format("hh:mm A");
 
-	console.log("time difference" + timeDiff);
-	console.log("timeRemain" + timeRemain);
-	console.log("total minutes" + totalMins);
-	console.log(nextTrain);
+	// console.log("time difference" + timeDiff);
+	// console.log("timeRemain" + timeRemain);
+	// console.log("total minutes" + totalMins);
+	// console.log(nextTrain);
 
 	//put it in the html!
 	$("#timeTable > tbody").append("<tr><td>" + fireTrainName + "</td><td>" + fireDestination + "</td><td>" + fireFrequency + " minutes" + "</td><td>" + nextTrain + "</td><td>" + totalMins + "</td></tr>");
